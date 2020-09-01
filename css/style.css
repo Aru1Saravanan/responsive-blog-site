@@ -1,1 +1,112 @@
-/* No CSS */
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap");
+html {
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+header {
+  background: #f8f8f8;
+  padding: 8em;
+}
+
+.titlebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-items {
+  margin-left: 3em;
+}
+
+.nav-items a:hover, .nav-items a:focus {
+  color: #1792d2;
+  cursor: pointer;
+}
+
+.active a {
+  border-bottom: 3px solid #717171;
+  padding-bottom: 0.25em;
+}
+
+.active a:hover, .active a:active {
+  color: #717171;
+  cursor: default;
+}
+
+.heading {
+  font-family: "lora", "monospace";
+  font-weight: 500;
+  font-size: 3.3rem;
+  color: #143774;
+  text-align: center;
+}
+
+.description {
+  font-family: "ubuntu", "sans-serif";
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1792d2;
+  letter-spacing: 0.24rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.nav-items {
+  text-align: center;
+}
+
+.nav-items a {
+  font-family: "ubuntu", "sans-serif";
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #717171;
+  letter-spacing: 0.32rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  header {
+    padding: 3em;
+  }
+  .titlebar,
+  .nav-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .nav-items {
+    margin-left: 0;
+    margin-top: 1.5em;
+  }
+}

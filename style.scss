@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+// variables
+
+$white: #ffffff;
+$lightwhite: #f8f8f8;
+$grey: #ebebeb;
+$purple: #1792d2;
+$violet: #143774;
+$dimgrey: #707070;
+$darkgrey: #717171;
+$ubuntu: "ubuntu", "sans-serif";
+$lora: "lora", "monospace";
+
+//basic layout correction
+html {
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+//layout
+header {
+  background: $lightwhite;
+  padding: 8em;
+}
+
+.titlebar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-items {
+  margin-left: 3em;
+  a {
+    &:hover,
+    &:focus {
+      color: $purple;
+      cursor: pointer;
+    }
+  }
+}
+
+.active a {
+  border-bottom: 3px solid $darkgrey;
+  padding-bottom: 0.25em;
+  &:hover,
+  &:active {
+    color: $darkgrey;
+    cursor: default;
+  }
+}
+
+//typography
+
+.heading {
+  font-family: $lora;
+  font-weight: 500;
+  font-size: 3.3rem;
+  color: $violet;
+  text-align: center;
+}
+
+.description {
+  font-family: $ubuntu;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $purple;
+  letter-spacing: 0.24rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.nav-items {
+  a {
+    font-family: $ubuntu;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: $darkgrey;
+    letter-spacing: 0.32rem;
+    text-transform: uppercase;
+  }
+  text-align: center;
+}
+
+//mobile layout
+@media (max-width: 1100px) {
+  //layout
+
+  header {
+    padding: 3em;
+  }
+  .titlebar,
+  .nav-list {
+    flex-flow: column;
+    justify-content: space-evenly;
+  }
+
+  .nav-items {
+    margin-left: 0;
+    margin-top: 1.5em;
+  }
+}
