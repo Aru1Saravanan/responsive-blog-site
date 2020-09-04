@@ -15,39 +15,39 @@ $lora: "lora", "monospace";
 //basic layout correction
 html {
   font-size: 10px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
+  font-family: $ubuntu;
 }
 
 //layout
 header {
   background: $lightwhite;
-  padding: 8em;
+  padding: 4em 0;
+  h1,
+  p {
+    margin: 0;
+  }
 }
 
 .titlebar {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  max-width: 80%;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 90rem;
   margin: 0 auto;
 }
 
-.nav-list {
+nav ul {
   list-style: none;
   padding: 0;
   display: flex;
-  align-items: center;
+  justify-items: center;
 }
 
 .nav-items {
-  margin-left: 3em;
+  margin-left: 2em;
   a {
+    text-decoration: none;
+    padding: 0.25em 0;
     &:hover,
     &:focus {
       color: $purple;
@@ -56,11 +56,10 @@ header {
   }
 }
 
-.active a {
-  border-bottom: 3px solid $darkgrey;
-  padding-bottom: 0.25em;
+.active {
+  border-bottom: 1px solid $darkgrey;
   &:hover,
-  &:active {
+  &:focus {
     color: $darkgrey;
     cursor: default;
   }
@@ -68,16 +67,15 @@ header {
 
 //typography
 
-.heading {
+h1 {
   font-family: $lora;
-  font-weight: 500;
-  font-size: 3.3rem;
+  font-weight: 400;
+  font-size: 3.2rem;
   color: $violet;
   text-align: center;
 }
 
 .description {
-  font-family: $ubuntu;
   font-size: 1.2rem;
   font-weight: 700;
   color: $purple;
@@ -88,31 +86,71 @@ header {
 
 .nav-items {
   a {
-    font-family: $ubuntu;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 1.6rem;
     color: $darkgrey;
-    letter-spacing: 0.32rem;
     text-transform: uppercase;
+    letter-spacing: 0.32rem;
   }
-  text-align: center;
+}
+
+.article-title {
+  font-family: $lora;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: $violet;
+}
+
+.article-body {
+  font-size: 1.8rem;
+  color: $dimgrey;
+}
+
+.article-info {
+  font-size: 1.4rem;
+  color: $dimgrey;
+}
+
+.article-read-more {
+  font-size: 1.4rem;
+  color: $purple;
+  text-transform: uppercase;
+  letter-spacing: 0.28rem;
+  text-decoration: none;
+}
+
+.widget-title {
+  font-size: 1.8rem;
+  color: $violet;
+  text-transform: uppercase;
+  letter-spacing: 0.36rem;
+}
+
+.widget-body {
+  font-size: 1.4rem;
+  color: $violet;
+}
+
+.widget-recent-post-title {
+  font-family: $lora;
+  font-size: 1.8rem;
+  color: $violet;
 }
 
 //mobile layout
-@media (max-width: 1100px) {
+@media (max-width: 800px) {
   //layout
 
   header {
-    padding: 3em;
+    text-align: center;
+    padding: 2em 0;
   }
   .titlebar,
   .nav-list {
     flex-flow: column;
-    justify-content: space-evenly;
   }
 
   .nav-items {
-    margin-left: 0;
-    margin-top: 1.5em;
+    margin: 0.5em 0;
   }
 }
