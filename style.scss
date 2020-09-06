@@ -12,39 +12,57 @@ $darkgrey: #717171;
 $ubuntu: "ubuntu", "sans-serif";
 $lora: "lora", "monospace";
 
-//basic layout correction
+//basic changes
 html {
   font-size: 10px;
+}
+
+body {
+  margin: 0;
   font-family: $ubuntu;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 //layout
 header {
   background: $lightwhite;
-  padding: 4em 0;
+  padding: 2em 0;
+  text-align: center;
+  margin-bottom: 2em;
   h1,
   p {
     margin: 0;
   }
 }
 
-.titlebar {
-  display: flex;
-  justify-content: space-between;
+.container {
   width: 90%;
   max-width: 90rem;
   margin: 0 auto;
+}
+
+.container-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
   display: flex;
-  justify-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav-items {
-  margin-left: 2em;
+  margin: 0.5em 0;
   a {
     text-decoration: none;
     padding: 0.25em 0;
@@ -56,7 +74,7 @@ nav ul {
   }
 }
 
-.active {
+.nav-items .active {
   border-bottom: 1px solid $darkgrey;
   &:hover,
   &:focus {
@@ -65,14 +83,39 @@ nav ul {
   }
 }
 
+.article-read-more:hover,
+.article-read-more:focus {
+  color: $violet;
+  text-decoration: underline;
+}
+
 //typography
 
-h1 {
+h1,
+h2,
+h3 {
   font-family: $lora;
   font-weight: 400;
-  font-size: 3.2rem;
   color: $violet;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 3.2rem;
   text-align: center;
+  margin: 0;
+}
+
+a {
+  color: $purple;
+  &:hover,
+  &:focus {
+    color: $violet;
+  }
+}
+
+strong {
+  font-weight: 700;
 }
 
 .description {
@@ -82,6 +125,7 @@ h1 {
   letter-spacing: 0.24rem;
   text-transform: uppercase;
   text-align: center;
+  margin: 0;
 }
 
 .nav-items {
@@ -95,28 +139,24 @@ h1 {
 }
 
 .article-title {
-  font-family: $lora;
   font-size: 2.4rem;
-  font-weight: 500;
-  color: $violet;
 }
 
-.article-body {
-  font-size: 1.8rem;
-  color: $dimgrey;
-}
-
-.article-info {
+.article-info,
+.article-read-more {
   font-size: 1.4rem;
-  color: $dimgrey;
 }
 
 .article-read-more {
-  font-size: 1.4rem;
+  font-weight: 700;
   color: $purple;
   text-transform: uppercase;
   letter-spacing: 0.28rem;
   text-decoration: none;
+}
+
+.article-info {
+  margin: 2em 0;
 }
 
 .widget-title {
@@ -132,25 +172,79 @@ h1 {
 }
 
 .widget-recent-post-title {
-  font-family: $lora;
   font-size: 1.8rem;
-  color: $violet;
 }
 
-//mobile layout
-@media (max-width: 800px) {
-  //layout
+/* articles */
 
-  header {
-    text-align: center;
-    padding: 2em 0;
-  }
-  .titlebar,
-  .nav-list {
-    flex-flow: column;
+.article-featured {
+  border-bottom: $dimgrey 1px solid;
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+
+.article-recent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em;
+}
+
+.left-column {
+  order: 2;
+}
+
+.right-column {
+  order: 1;
+}
+
+//desktop layout
+@media (min-width: 850px) {
+  .container-flex,
+  nav ul {
+    flex-direction: row;
   }
 
   .nav-items {
-    margin: 0.5em 0;
+    margin: 0 2em 0 0;
+  }
+
+  main {
+    width: 75%;
+  }
+
+  aside {
+    width: 20%;
+  }
+
+  .article-recent {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .left-column {
+    width: 65%;
+  }
+
+  .right-column {
+    width: 30%;
+  }
+
+  .article-featured {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-img {
+    order: -2;
+  }
+
+  .article-info {
+    order: -1;
+  }
+
+  .article-img {
+    width: 100%;
+    min-height: 90%;
+    object-fit: cover;
   }
 }
